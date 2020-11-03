@@ -1,4 +1,7 @@
 {
+  "emmet.includeLanguages": {
+    "tera": "html"
+  },
   "files.associations": {
     "**/templates/**/*.html": "tera"
   }
