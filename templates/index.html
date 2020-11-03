@@ -1,10 +1,16 @@
 {% extends 'shared/base.html' %}
 
-{% block title %}{{ section.title }}{% endblock %}
+{% block title %}Jakub Leško{% endblock %}
 
 {% block content %}
-  <main>
-    <h1>{{ section.title }}</h1>
-    <p>Days since last JavaScript bug: NaN</p>
+  <main class="flex flex-col items-center justify-center bg-gray-100 border-b border-gray-200 h-screen">
+    <div class="flex flex-col items-center max-w-screen-sm mx-auto px-8 pt-12 pb-16">
+      <h1 class="font-bold text-4xl text-gray-800">
+          {{ section.title }}
+      </h1>
+      <p class="text-center text-xl text-gray-600">
+          Days since last JavaScript bug: NaN
+      </p>
+    </div>
   </main>
 {% endblock %}

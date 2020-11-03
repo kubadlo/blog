@@ -2,7 +2,21 @@
   "name": "blog",
   "private": true,
   "scripts": {
-    "serve": "zola serve",
-    "build": "zola build"
+    "zola:serve": "zola serve",
+    "zola:build": "zola build",
+    "rollup:build": "rollup --config",
+    "rollup:watch": "rollup --config --watch",
+    "rollup:release": "rollup --config --environment NODE_ENV:production"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@rollup/plugin-babel": "^5.2.1",
+    "postcss": "^8.1.4",
+    "postcss-preset-env": "^6.7.0",
+    "rollup": "^2.33.1",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-terser": "^7.0.2",
+    "tailwindcss": "^1.9.6"
   }
 }
