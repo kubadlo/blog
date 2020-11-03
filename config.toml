@@ -1,0 +1,7 @@
+# Page defaults
+base_url = "https://jakublesko.com/"
+title = "Jakub Leško"
+description = "Blog about programming and technology in general"
+
+# Enable RSS feed generation
+generate_feed = true
