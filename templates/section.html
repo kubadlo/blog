@@ -70,9 +70,11 @@
       {% endif %}
     </main>
   {% endif %}
-  {% if page.content %}
+  {% if section.content %}
     <main class="text-gray-700 max-w-screen-sm mx-auto px-8 py-12">
-      {{ page.content }}
+      <article class="text-article text-justify text-indent space-y-4">
+        {{ section.content | safe }}
+      </article>
     </main>
   {% endif %}
 {% endblock %}

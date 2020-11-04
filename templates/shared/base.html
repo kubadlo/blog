@@ -18,7 +18,7 @@
         href="{{ get_url(path='atom.xml') }}">
   <link rel="stylesheet"
         type="text/css"
-        href="{{ get_url(path='blog.css') }}">
+        href="{{ get_url(path='/assets/blog.css') }}">
   <title>{% block title %}Jakub Leško{% endblock %}</title>
 </head>
 <body>
@@ -29,6 +29,6 @@
   {% block footer %}
   {% endblock %}
   <script type="application/javascript"
-          src="{{ get_url(path='blog.js') }}"></script>
+          src="{{ get_url(path='/assets/blog.js') }}"></script>
 </body>
 </html>

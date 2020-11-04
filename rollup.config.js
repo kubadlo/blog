@@ -10,7 +10,7 @@ const bundleName = () => production()
 module.exports = {
   input: 'client/blog.js',
   output: {
-    dir: 'static/',
+    dir: 'static/assets/',
     entryFileNames: bundleName(),
     format: 'iife',
     sourcemap: !production()
