@@ -49,5 +49,9 @@
   .text-article pre {
     @apply bg-gray-900 text-gray-200 rounded-md px-4 py-2 overflow-auto;
   }
+
+  .text-article img {
+    @apply cursor-pointer;
+  }
   /* purgecss end ignore */
 }
