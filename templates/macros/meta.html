@@ -1,0 +1,42 @@
+{% macro base(description) %}
+  <meta name="author"
+        content="Jakub Leško">
+  <meta name="description"
+        content="{{ description }}">
+{% endmacro  %}
+
+{% macro facebook(title, description, url, type="website") %}
+  <meta property="og:url"
+        content="{{ config.base_url }}{{ url }}">
+  <meta property="og:type"
+        content="{{ type }}">
+  <meta property="og:title"
+        content="{{ title }}">
+  <meta property="og:description"
+        content="{{ description }}">
+  {# TODO: Change image #}
+  <meta property="og:image"
+        content="https://example.com/image.jpg">
+  <meta property="og:image:alt"
+        content="A description of what is in the image (not a caption)">
+{% endmacro  %}
+
+{% macro twitter(title, description, url) %}
+  <meta name="twitter:card"
+        content="summary">
+  <meta name="twitter:site"
+        content="@kubadlo">
+  <meta name="twitter:creator"
+        content="@kubadlo">
+  <meta name="twitter:url"
+        content="{{ config.base_url }}{{ url }}">
+  <meta name="twitter:title"
+        content="{{ title }}">
+  <meta name="twitter:description"
+        content="{{ description }}">
+  {# TODO: Change image #}
+  <meta name="twitter:image"
+        content="https://example.com/image.jpg">
+  <meta name="twitter:image:alt"
+        content="A description of what is in the image (not a caption)">
+{% endmacro  %}

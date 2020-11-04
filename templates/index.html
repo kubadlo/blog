@@ -1,4 +1,11 @@
-{% extends 'shared/base.html' %}
+{% extends "shared/base.html" %}
+
+{% import "macros/meta.html" as meta %}
+{% block meta %}
+  {{ meta::base(description=section.description) }}
+  {{ meta::facebook(title=section.title, description=section.description, url=section.path) }}
+  {{ meta::twitter(title=section.title, description=section.description, url=section.path) }}
+{% endblock %}
 
 {% block title %}{{ section.title }}{% endblock %}
 
@@ -22,5 +29,5 @@
 {% endblock %}
 
 {% block footer %}
-  {% include 'shared/footer.html' %}
+  {% include "shared/footer.html" %}
 {% endblock %}
