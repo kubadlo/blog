@@ -68,9 +68,7 @@
         type="application/rss+xml"
         title="RSS Feed"
         href="{{ get_url(path='rss.xml') }}">
-  <link rel="stylesheet"
-        type="text/css"
-        href="{{ get_url(path='/assets/blog.css') }}">
+  {% include "generated/styles.html" %}
   <title>{% block title %}Jakub Leško{% endblock %}</title>
 </head>
 <body>
@@ -82,7 +80,6 @@
   {% endblock %}
   {% block modal %}
   {% endblock %}
-  <script type="application/javascript"
-          src="{{ get_url(path='/assets/blog.js') }}"></script>
+  {% include "generated/scripts.html" %}
 </body>
 </html>

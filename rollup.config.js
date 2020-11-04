@@ -1,5 +1,6 @@
 const { babel } = require('@rollup/plugin-babel');
 const { terser } = require('rollup-plugin-terser');
+const html = require('@rollup/plugin-html');
 const postcss = require('rollup-plugin-postcss');
 
 const production = () => process.env.NODE_ENV === 'production';
@@ -28,6 +29,18 @@ module.exports = {
         require('postcss-preset-env')
       ]
     }),
-    production() && terser()
+    production() && terser(),
+    html({
+      fileName: 'generated/styles.html',
+      template: ({ files }) => (files.css || [])
+        .map(({ fileName }) => `<link rel="stylesheet" type="text/css" href="{{ get_url(path='/assets/${fileName}') }}">`)
+        .join('\n')
+    }),
+    html({
+      fileName: 'generated/scripts.html',
+      template: ({ files }) => (files.js || [])
+        .map(({ fileName }) => `<script type="application/javascript" src="{{ get_url(path='/assets/${fileName}') }}"></script>`)
+        .join('\n')
+    }),
   ]
 };

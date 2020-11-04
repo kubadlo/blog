@@ -5,6 +5,7 @@ npm-debug.log
 # Compiled assets
 public/
 static/assets/
+templates/generated/
 
 # Sublime Text
 *.sublime-workspace
