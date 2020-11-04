@@ -58,7 +58,7 @@ In the following example, we will create a simple API with 2 routes – one publ
 
 We will use page [start.spring.io](https://start.spring.io/) to create our application skeleton and select Security and Web dependencies. Rest of the options are up to your preferences.
 
-![Spring Initializr screenshot](/images/2019-01-14-spring-initializr.png "Screenshot of Spring Initializr with new application details")
+![Spring Initializr screenshot](/images/blog/2019-01-14-spring-initializr.png "Screenshot of Spring Initializr with new application details")
 
 JWT support for Java is provided by the library [JJWT](https://github.com/jwtk/jjwt) so we also need to add following dependencies to the pom.xml file:
 

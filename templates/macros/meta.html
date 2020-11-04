@@ -14,11 +14,14 @@
         content="{{ title }}">
   <meta property="og:description"
         content="{{ description }}">
-  {# TODO: Change image #}
   <meta property="og:image"
-        content="https://example.com/image.jpg">
+        content="{{ get_url(path='/images/share_facebook.png') }}">
+  <meta property="og:image:width"
+        content="1800">
+  <meta property="og:image:height"
+        content="600">
   <meta property="og:image:alt"
-        content="A description of what is in the image (not a caption)">
+        content="Cartoon character of me">
 {% endmacro  %}
 
 {% macro twitter(title, description, url) %}
@@ -34,9 +37,8 @@
         content="{{ title }}">
   <meta name="twitter:description"
         content="{{ description }}">
-  {# TODO: Change image #}
   <meta name="twitter:image"
-        content="https://example.com/image.jpg">
+        content="{{ get_url(path='/images/share_twitter.png') }}">
   <meta name="twitter:image:alt"
-        content="A description of what is in the image (not a caption)">
+        content="Cartoon character of me">
 {% endmacro  %}
