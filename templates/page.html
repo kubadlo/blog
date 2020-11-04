@@ -1,23 +1,24 @@
 {% extends 'shared/base.html' %}
 
-{% block title %}{{ section.title }}{% endblock %}
+{% block title %}{{ page.title }}{% endblock %}
 
 {% block header %}
-  <header class="fixed w-full">
-    {% include 'shared/navbar.html' %}
+  <header class="bg-gray-100 border-b border-gray-200">
+    {% include "shared/navbar.html" %}
+    <div class="flex flex-col items-center max-w-screen-sm mx-auto px-8 pt-12 pb-16">
+      <h1 class="font-bold text-4xl text-gray-800">
+        {{ page.title }}
+      </h1>
+      <p class="text-center text-xl text-gray-600">
+        {{ page.date }}
+      </p>
+    </div>
   </header>
 {% endblock %}
 
 {% block content %}
-  <main class="flex flex-col items-center justify-center bg-gray-100 border-b border-gray-200 h-screen">
-    <div class="flex flex-col items-center max-w-screen-sm mx-auto px-8 pt-12 pb-16">
-      <h1 class="font-bold text-4xl text-gray-800">
-        {{ section.title }}
-      </h1>
-      <p class="text-center text-xl text-gray-600">
-        {{ section.description }}
-      </p>
-    </div>
+  <main class="text-gray-700 max-w-screen-sm mx-auto px-8 py-12">
+    {{ page.content }}
   </main>
 {% endblock %}
 

@@ -1,0 +1,54 @@
+<footer class="max-w-screen-lg mx-auto px-6 py-6 md:py-8">
+  <div class="text-center text-gray-600">
+    <p>
+      <strong>Jakub Leško</strong> &copy; 2016 - 2020 all rights reserved.
+    </p>
+    <p>
+      This blog is built with
+      <a href="https://www.getzola.org/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="hover:text-indigo-800 transition duration-150 ease-in-out">
+        Zola</a>,
+      <a href="https://tailwindcss.com/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="hover:text-indigo-800 transition duration-150 ease-in-out">
+        Tailwindcss</a>,
+      and
+      <a href="https://remixicon.com/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="hover:text-indigo-800 whitespace-no-wrap transition duration-150 ease-in-out">
+        Remix Icon</a>.
+    </p>
+  </div>
+  <div class="flex flex-row items-center justify-center text-gray-600 mt-6 space-x-8">
+    <a href="https://github.com/keysh"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="fill-current hover:text-indigo-800 transition duration-150 ease-in-out"
+       title="Github">
+      {% include 'icons/github.html' %}
+    </a>
+    <a href="https://twitter.com/kubadlo"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="fill-current hover:text-indigo-800 transition duration-150 ease-in-out"
+       title="Twitter">
+      {% include 'icons/twitter.html' %}
+    </a>
+    <a href="https://www.linkedin.com/in/jakublesko/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="fill-current hover:text-indigo-800 transition duration-150 ease-in-out"
+       title="LinkedIn">
+      {% include 'icons/linkedin.html' %}
+    </a>
+    <a href="{{ get_url(path='atom.xml') }}"
+       class="fill-current hover:text-indigo-800 transition duration-150 ease-in-out"
+       title="RSS Feed">
+      {% include 'icons/rss.html' %}
+    </a>
+  </div>
+</footer>

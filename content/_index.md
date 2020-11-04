@@ -1,4 +1,4 @@
 +++
 title = "Jakub Leško"
-description = "Blog about programming and technology in general"
+description = "Days since last JavaScript bug: NaN"
 +++
