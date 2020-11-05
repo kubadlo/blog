@@ -1,0 +1,2 @@
+RewriteEngine on
+ErrorDocument 404 https://jakublesko.com/404.html
