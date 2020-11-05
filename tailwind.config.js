@@ -3,7 +3,10 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true
   },
-  purge: ['templates/**/*.html'],
+  purge: [
+    'client/**/*.js',
+    'templates/**/*.html'
+  ],
   theme: {
     fontFamily: {
       sans: ['Fira Sans', 'BlinkMacSystemFont', '-apple-system', 'sans-serif'],

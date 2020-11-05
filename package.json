@@ -7,7 +7,7 @@
     "rollup:build": "rollup --config",
     "rollup:watch": "rollup --config --watch",
     "rollup:release": "rollup --config --environment NODE_ENV:production",
-    "clean:build": "rimraf public/ static/assets/"
+    "clean:build": "rimraf public/ static/assets/ templates/generated/"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
