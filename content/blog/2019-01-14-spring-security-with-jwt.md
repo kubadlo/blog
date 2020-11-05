@@ -29,7 +29,7 @@ Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoi
 
 As you can see there are three parts separated with comma – header, claims, and signature. Header and payload are Base64 encoded JSON objects.
 
-#### Header:
+### Header:
 
 ```json
 {
@@ -38,7 +38,7 @@ As you can see there are three parts separated with comma – header, claims, an
 }
 ```
 
-#### Claims/Payload:
+### Claims/Payload:
 
 ```json
 {
@@ -310,7 +310,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ## Test
 
-#### Request to public API
+### Request to public API
 
 ```bash
 GET http://localhost:8080/api/public
@@ -332,7 +332,7 @@ Hello from public API controller
 Response code: 200; Time: 18ms; Content length: 32 bytes
 ```
 
-#### Authenticate user
+### Authenticate user
 
 ```bash
 POST http://localhost:8080/api/authenticate?username=user&password=password
@@ -354,7 +354,7 @@ Date: Sun, 13 Jan 2019 12:21:15 GMT
 Response code: 200; Time: 167ms; Content length: 0 bytes
 ```
 
-#### Request to private API with token
+### Request to private API with token
 
 ```bash
 GET http://localhost:8080/api/private
@@ -377,7 +377,7 @@ Hello from private API controller
 Response code: 200; Time: 12ms; Content length: 33 bytes
 ```
 
-#### Request to private API without token
+### Request to private API without token
 
 You’ll get HTTP 403 message when you call secured endpoint without a valid JWT.
 
