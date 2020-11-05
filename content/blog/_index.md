@@ -1,6 +1,6 @@
 +++
 title = "Blog"
-description = "Articles about JavaScript, Python and technology in general"
+description = "Articles about programming and technologies"
 paginate_by = 5
 sort_by = "date"
 +++
