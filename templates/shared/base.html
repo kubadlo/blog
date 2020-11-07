@@ -6,6 +6,17 @@
         content="width=device-width, initial-scale=1">
   {% block meta %}
   {% endblock %}
+  {# Fonts preoad #}
+  <link rel="preload"
+        as="font"
+        href="/fonts/FiraSans-Regular.woff2">
+  <link rel="preload"
+        as="font"
+        href="/fonts/FiraSans-Bold.woff2">
+  <link rel="preload"
+        as="font"
+        href="/fonts/FiraMono-Regular.woff2">
+  {# Base icons #}
   <link rel="icon"
         type="image/png"
         href="{{ get_url(path='/images/favicon-196x196.png') }}"
@@ -26,6 +37,7 @@
         type="image/png"
         href="{{ get_url(path='/images/favicon-16x16.png') }}"
         sizes="16x16">
+  {# Apple icons #}
   <link rel="apple-touch-icon-precomposed"
         type="image/png"
         href="{{ get_url(path='/images/apple-touch-icon-152x152.png') }}"
@@ -58,12 +70,7 @@
         type="image/png"
         href="{{ get_url(path='/images/apple-touch-icon-57x57.png') }}"
         sizes="57x57">
-  <link rel="stylesheet"
-        type="text/css"
-        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap">
-  <link rel="stylesheet"
-        type="text/css"
-        href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap">
+  {# RSS feed #}
   <link rel="alternate"
         type="application/rss+xml"
         title="RSS Feed"

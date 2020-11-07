@@ -11,7 +11,7 @@ const bundleName = () => production()
 module.exports = {
   input: 'client/blog.js',
   output: {
-    dir: 'static/assets/',
+    dir: 'static/',
     entryFileNames: bundleName(),
     format: 'iife',
     sourcemap: !production()
@@ -33,13 +33,13 @@ module.exports = {
     html({
       fileName: 'generated/styles.html',
       template: ({ files }) => (files.css || [])
-        .map(({ fileName }) => `<link rel="stylesheet" type="text/css" href="{{ get_url(path='/assets/${fileName}') }}">`)
+        .map(({ fileName }) => `<link rel="stylesheet" type="text/css" href="{{ get_url(path='/${fileName}') }}">`)
         .join('\n')
     }),
     html({
       fileName: 'generated/scripts.html',
       template: ({ files }) => (files.js || [])
-        .map(({ fileName }) => `<script type="application/javascript" src="{{ get_url(path='/assets/${fileName}') }}"></script>`)
+        .map(({ fileName }) => `<script type="application/javascript" src="{{ get_url(path='/${fileName}') }}"></script>`)
         .join('\n')
     }),
   ]

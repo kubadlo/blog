@@ -7,14 +7,15 @@
     "rollup:build": "rollup --config",
     "rollup:watch": "rollup --config --watch",
     "rollup:release": "rollup --config --environment NODE_ENV:production",
-    "clean:build": "rimraf public/ static/assets/ templates/generated/"
+    "clean:build": "rimraf public/",
+    "clean:rollup": "rimraf static/*.css static/*.js static/*.map",
+    "clean:templates": "rimraf static/generated/ templates/generated/"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@rollup/plugin-babel": "^5.2.1",
     "@rollup/plugin-html": "^0.2.0",
-    "postcss": "^8.1.4",
     "postcss-preset-env": "^6.7.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.33.1",
