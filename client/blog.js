@@ -39,4 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     previewContainer?.classList.remove('fixed');
     previewContainer?.classList.add('hidden');
   });
+
+  console.info('Hi! 👋\nIf you are even more curious, you can find the source code of this site here: https://github.com/keysh/blog');
 });
