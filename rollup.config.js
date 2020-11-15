@@ -41,6 +41,6 @@ module.exports = {
       template: ({ files }) => (files.js || [])
         .map(({ fileName }) => `<script type="application/javascript" src="{{ get_url(path='/${fileName}') }}"></script>`)
         .join('\n')
-    }),
+    })
   ]
 };
