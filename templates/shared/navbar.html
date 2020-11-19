@@ -1,59 +1,59 @@
-<nav class="flex flex-row justify-between items-center max-w-screen-lg mx-auto px-6 py-6 md:py-8">
+<nav class="navbar">
   <a href="{{ get_url(path='@/_index.md') }}"
-     class="font-bold text-xl text-gray-800 hover:text-indigo-800 transition duration-150 ease-in-out">
+     class="navbar-brand">
     Jakub Leško
   </a>
   <button type="button"
-          id="menu-open-btn"
+          id="navbar-open-btn"
           class="fill-current text-gray-600 hover:text-indigo-800 md:hidden">
     {% include 'icons/menu.html' %}
   </button>
-  <div id="menu-container"
-       class="hidden w-full top-0 inset-x-0 p-2">
-    <div class="bg-white rounded-lg shadow-md p-4 space-y-4">
-      <div class="flex flex-row justify-between items-center">
+  <div id="navbar-mobile-container"
+       class="navbar-mobile navbar-hidden">
+    <div class="navbar-card">
+      <div class="navbar-card-header">
         <a href="{{ get_url(path='@/_index.md') }}"
-           class="font-bold text-xl text-gray-800 hover:text-indigo-800 transition duration-150 ease-in-out">
+           class="navbar-brand">
           Jakub Leško
         </a>
         <button type="button"
-                id="menu-close-btn"
-                class="fill-current text-gray-600 hover:text-indigo-800">
+                id="navbar-close-btn"
+                class="link">
           {% include "icons/close.html" %}
         </button>
       </div>
-      <div class="flex flex-col text-gray-600 space-y-4">
+      <div class="navbar-card-links">
         <a href="{{ get_url(path='@/_index.md') }}"
-           class="hover:text-indigo-800 transition duration-150 ease-in-out">
+           class="link">
           Home
         </a>
         <a href="{{ get_url(path='@/blog/_index.md') }}"
-           class="hover:text-indigo-800 transition duration-150 ease-in-out">
+           class="link">
           Blog
         </a>
         <a href="{{ get_url(path='@/about/_index.md') }}"
-           class="hover:text-indigo-800 transition duration-150 ease-in-out">
+           class="link">
           About
         </a>
-        <div class="flex flex-row space-x-8">
+        <div class="navbar-card-icons">
           <a href="https://github.com/keysh"
              target="_blank"
              rel="noopener noreferrer"
-             class="fill-current hover:text-indigo-800 transition duration-150 ease-in-out"
+             class="link"
              title="Github">
             {% include "icons/github.html" %}
           </a>
           <a href="https://twitter.com/kubadlo"
              target="_blank"
              rel="noopener noreferrer"
-             class="fill-current hover:text-indigo-800 transition duration-150 ease-in-out"
+             class="link"
              title="Twitter">
             {% include "icons/twitter.html" %}
           </a>
           <a href="https://www.linkedin.com/in/jakublesko/"
              target="_blank"
              rel="noopener noreferrer"
-             class="fill-current hover:text-indigo-800 transition duration-150 ease-in-out"
+             class="link"
              title="LinkedIn">
             {% include "icons/linkedin.html" %}
           </a>
@@ -61,37 +61,37 @@
       </div>
     </div>
   </div>
-  <div class="hidden md:flex flex-row text-gray-600 space-x-8">
+  <div class="navbar-desktop">
     <a href="{{ get_url(path='@/_index.md') }}"
-       class="hover:text-indigo-800 transition duration-150 ease-in-out">
+       class="link">
       Home
     </a>
     <a href="{{ get_url(path='@/blog/_index.md') }}"
-       class="hover:text-indigo-800 transition duration-150 ease-in-out">
+       class="link">
       Blog
     </a>
     <a href="{{ get_url(path='@/about/_index.md') }}"
-       class="hover:text-indigo-800 transition duration-150 ease-in-out">
+       class="link">
       About
     </a>
     <a href="https://github.com/keysh"
        target="_blank"
        rel="noopener noreferrer"
-       class="fill-current hover:text-indigo-800 transition duration-150 ease-in-out"
+       class="link"
        title="Github">
       {% include "icons/github.html" %}
     </a>
     <a href="https://twitter.com/kubadlo"
        target="_blank"
        rel="noopener noreferrer"
-       class="fill-current hover:text-indigo-800 transition duration-150 ease-in-out"
+       class="link"
        title="Twitter">
       {% include "icons/twitter.html" %}
     </a>
     <a href="https://www.linkedin.com/in/jakublesko/"
        target="_blank"
        rel="noopener noreferrer"
-       class="fill-current hover:text-indigo-800 transition duration-150 ease-in-out"
+       class="link"
        title="LinkedIn">
       {% include "icons/linkedin.html" %}
     </a>

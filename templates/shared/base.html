@@ -75,7 +75,10 @@
         type="application/rss+xml"
         title="RSS Feed"
         href="{{ get_url(path='rss.xml') }}">
-  {% include "generated/styles.html" %}
+  {# Stylesheets #}
+  <link rel="stylesheet"
+        type="text/css"
+        href="{{ get_url(path='blog.css', cachebust=true) }}">
   <title>{% block title %}Jakub Leško{% endblock %}</title>
 </head>
 <body>
@@ -87,6 +90,8 @@
   {% endblock %}
   {% block modal %}
   {% endblock %}
-  {% include "generated/scripts.html" %}
+  {# Scripts #}
+  <script type="application/javascript"
+          src="{{ get_url(path='blog.js', cachebust=true) }}"></script>
 </body>
 </html>

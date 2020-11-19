@@ -4,11 +4,8 @@ npm-debug.log
 
 # Compiled assets
 public/
-static/generated/
-templates/generated/
-static/*.css
-static/*.js
-static/*.map
+static/blog.css
+static/blog.js
 
 # Sublime Text
 *.sublime-workspace
