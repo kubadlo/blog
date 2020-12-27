@@ -3,21 +3,13 @@
 {% block title %}Jakub Leško | Not found{% endblock %}
 
 {% block header %}
-  <header class="header-fixed">
-    {% include "shared/navbar.html" %}
-  </header>
+  {% include "shared/header.html" %}
 {% endblock %}
 
 {% block content %}
-  <main class="section-screen">
-    <div class="section-content">
-      <h1 class="title">
-        404
-      </h1>
-      <p class="subtitle">
-        Congratulations, you've found end of the internet
-      </p>
-    </div>
+  <main>
+    <h1>404</h1>
+    <p>Congratulations, you've found end of the internet</p>
   </main>
 {% endblock %}
 

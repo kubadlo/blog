@@ -9,4 +9,4 @@ feed_filename = "rss.xml"
 
 # Enable syntax highlighting
 highlight_code = true
-highlight_theme = "nord"
+highlight_theme = "visual-studio-dark"

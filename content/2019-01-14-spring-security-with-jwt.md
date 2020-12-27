@@ -2,6 +2,7 @@
 title = "Spring Security with JWT"
 description = "Simple tutorial to show you how to use Spring Security with JWT"
 +++
+# Spring Security with JWT
 
 Spring Security’s default behavior is easy to use for a standard web application. It uses cookie-based authentication and sessions. Also, it automatically handles CSRF tokens for you (to prevent man in the middle attacks). In most cases you just need to set authorization rights for specific routes, a method to retrieve the user from the database and that’s it.
 
