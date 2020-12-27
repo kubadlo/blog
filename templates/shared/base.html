@@ -6,6 +6,15 @@
         content="width=device-width, initial-scale=1">
   {% block meta %}
   {% endblock %}
+  {# Fonts preload #}
+  <link rel="preload"
+        as="font"
+        href="/fonts/inter.woff2"
+        crossorigin>
+  <link rel="preload"
+        as="font"
+        href="/fonts/fira-code.woff2"
+        crossorigin>
   {# Base icons #}
   <link rel="icon"
         type="image/png"
@@ -63,10 +72,7 @@
   {# Stylesheets #}
   <link rel="stylesheet"
         type="text/css"
-        href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/inter.min.css">
-  <link rel="stylesheet"
-        type="text/css"
-        href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/fira-code.min.css">
+        href="{{ get_url(path='/styles/fonts.css') }}">
   <link rel="stylesheet"
         type="text/css"
         href="{{ get_url(path='/styles/blog.css') }}">
