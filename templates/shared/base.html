@@ -6,16 +6,6 @@
         content="width=device-width, initial-scale=1">
   {% block meta %}
   {% endblock %}
-  {# Fonts preoad #}
-  <link rel="preload"
-        as="font"
-        href="/fonts/FiraSans-Regular.woff2">
-  <link rel="preload"
-        as="font"
-        href="/fonts/FiraSans-Bold.woff2">
-  <link rel="preload"
-        as="font"
-        href="/fonts/FiraMono-Regular.woff2">
   {# Base icons #}
   <link rel="icon"
         type="image/png"
@@ -70,15 +60,24 @@
         type="image/png"
         href="{{ get_url(path='/images/apple-touch-icon-57x57.png') }}"
         sizes="57x57">
+  {# Stylesheets #}
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/inter.min.css">
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/jetbrains-mono.min.css">
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css">
+  <link rel="stylesheet"
+        type="text/css"
+        href="{{ get_url(path='/styles/blog.css') }}">
   {# RSS feed #}
   <link rel="alternate"
         type="application/rss+xml"
         title="RSS Feed"
         href="{{ get_url(path='rss.xml') }}">
-  {# Stylesheets #}
-  <link rel="stylesheet"
-        type="text/css"
-        href="{{ get_url(path='blog.css', cachebust=true) }}">
   <title>{% block title %}Jakub Leško{% endblock %}</title>
 </head>
 <body>
@@ -88,10 +87,5 @@
   {% endblock %}
   {% block footer %}
   {% endblock %}
-  {% block modal %}
-  {% endblock %}
-  {# Scripts #}
-  <script type="application/javascript"
-          src="{{ get_url(path='blog.js', cachebust=true) }}"></script>
 </body>
 </html>

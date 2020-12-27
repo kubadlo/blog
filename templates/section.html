@@ -7,73 +7,47 @@
   {{ meta::twitter(title=section.title, description=section.description, url=section.path) }}
 {% endblock %}
 
-{% block title %}Jakub Leško | {{ section.title }}{% endblock %}
+{% block title %}{{ section.title }}{% endblock %}
 
 {% block header %}
-  <header class="header">
-    {% include "shared/navbar.html" %}
-    <div class="header-content">
-      <h1 class="title">
-        {{ section.title }}
-      </h1>
-      <p class="subtitle">
-        {{ section.description }}
-      </p>
-    </div>
-  </header>
+  {% include "shared/header.html" %}
 {% endblock %}
 
 {% block content %}
   {% if paginator %}
-    <main class="section">
+    <main>
       {% for page in paginator.pages %}
-        <article class="article">
-          <header>
-            <h2>
-              <a href="{{ page.path }}">
-                {{ page.title }}
-              </a>
-            </h2>
-            <div class="article-detail">
-              <time datetime="{{ page.date }}">
-                {{ page.date | date(format="%B %e, %Y") }}
-              </time>
-              <span>&middot;</span>
-              <span>
-                {{ page.reading_time }} min reading
-              </span>
-            </div>
-          </header>
-          <div class="">
-            {{ page.content | safe | striptags | truncate(length=320) }}
-          </div>
+        <article>
+          <h2>{{ page.title }}</h2>
+          <p>
+            <time datetime="{{ page.date }}">{{ page.date | date(format="%B %e, %Y") }}</time>
+            <span>&middot;</span>
+            <span>{{ page.reading_time }} min reading</span>
+          </p>
+          {{ page.content | safe | striptags | truncate(length=320) }}
+          <p>
+            <a href="{{ page.path }}">Read more</a>
+          </p>
         </article>
       {% endfor %}
       {% if paginator.previous or paginator.next %}
-        <div class="pagination">
+        <nav>
           {% if paginator.previous %}
-            <a href="{{ paginator.previous }}"
-               class="link">
-              {% include "icons/arrow-left.html" %}
-              Previous page
-            </a>
+            <a href="{{ paginator.previous }}">Previous page</a>
+          {% endif %}
+          {% if paginator.previous and paginator.next %}
+            <span>/</span>
           {% endif %}
           {% if paginator.next %}
-            <a href="{{ paginator.next }}"
-               class="link">
-              Next page
-              {% include "icons/arrow-right.html" %}
-            </a>
+            <a href="{{ paginator.next }}">Next page</a>
           {% endif %}
-        </div>
+        </nav>
       {% endif %}
     </main>
   {% endif %}
   {% if section.content %}
-    <main class="section">
-      <article class="article">
-        {{ section.content | safe }}
-      </article>
+    <main>
+      {{ section.content | safe }}
     </main>
   {% endif %}
 {% endblock %}

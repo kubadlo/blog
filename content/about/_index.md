@@ -1,5 +1,5 @@
 +++
-title = "About"
+title = "Jakub Leško | About"
 description = "A few words about me"
 +++
 
