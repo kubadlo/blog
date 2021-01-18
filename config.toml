@@ -1,12 +1,23 @@
 # Page defaults
-base_url = "https://jakublesko.com"
-title = "Jakub Leško"
+base_url    = "https://jakublesko.com"
+title       = "Jakub Leško"
 description = "Blog about programming and technology in general"
 
 # Enable RSS feed generation
 generate_feed = true
 feed_filename = "rss.xml"
 
+[markdown]
 # Enable syntax highlighting
-highlight_code = true
-highlight_theme = "visual-studio-dark"
+highlight_code  = true
+highlight_theme = "dracula"
+
+# Enable emoji rendering (:smile: becomes 😄)
+render_emoji = true
+
+# Open external links in a new tab
+external_links_target_blank = false
+
+# Privacy enhancements for external links
+external_links_no_follow    = false
+external_links_no_referrer  = false
