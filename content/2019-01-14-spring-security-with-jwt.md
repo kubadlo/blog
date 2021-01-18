@@ -412,4 +412,4 @@ Response code: 403; Time: 28ms; Content length: 125 bytes
 
 The goal of this article is not to show the one correct way how to use JWTs in Spring Security. It’s an example of how you can do it in your real-life application. Also, I did not want to go too deep into the topic so few things like token refreshing, invalidation, etc. are missing but I’ll cover these topics probably in the future.
 
-**tl;dr** You can find the full source code of this example API in my [GitHub repository](https://github.com/keysh/jwt-security).
+**tl;dr** You can find the full source code of this example API in my [GitHub repository](https://github.com/kubadlo/jwt-security).
