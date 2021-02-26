@@ -1,7 +1,7 @@
 +++
-title = "Jakub Leško"
+title       = "Jakub Leško"
 description = "Blog about programming and technology in general"
-template = "section.html"
+template    = "section.html"
 paginate_by = 5
-sort_by = "date"
+sort_by     = "date"
 +++

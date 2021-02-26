@@ -1,7 +1,8 @@
 +++
-title = "Spring Security with JWT"
+title       = "Spring Security with JWT"
 description = "Simple tutorial to show you how to use Spring Security with JWT"
 +++
+
 # Spring Security with JWT
 
 Spring Security’s default behavior is easy to use for a standard web application. It uses cookie-based authentication and sessions. Also, it automatically handles CSRF tokens for you (to prevent man in the middle attacks). In most cases you just need to set authorization rights for specific routes, a method to retrieve the user from the database and that’s it.
@@ -47,9 +48,7 @@ As you can see there are three parts separated with comma – header, claims, an
   "aud": "secure-app",
   "sub": "user",
   "exp": 1548242589,
-  "rol": [
-    "ROLE_USER"
-  ]
+  "rol": ["ROLE_USER"]
 }
 ```
 
@@ -316,8 +315,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 ```bash
 GET http://localhost:8080/api/public
 ```
+
 ```bash
-HTTP/1.1 200 
+HTTP/1.1 200
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
@@ -338,8 +338,9 @@ Response code: 200; Time: 18ms; Content length: 32 bytes
 ```bash
 POST http://localhost:8080/api/authenticate?username=user&password=password
 ```
+
 ```bash
-HTTP/1.1 200 
+HTTP/1.1 200
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6InVzZXIiLCJleHAiOjE1NDgyNDYwNzUsInJvbCI6WyJST0xFX1VTRVIiXX0.yhskhWyi-PgIluYY21rL0saAG92TfTVVVgVT1afWd_NnmOMg__2kK5lcna3lXzYI4-0qi9uGpI6Ul33-b9KTnA
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -361,8 +362,9 @@ Response code: 200; Time: 167ms; Content length: 0 bytes
 GET http://localhost:8080/api/private
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzZWN1cmUtYXBpIiwiYXVkIjoic2VjdXJlLWFwcCIsInN1YiI6InVzZXIiLCJleHAiOjE1NDgyNDI1ODksInJvbCI6WyJST0xFX1VTRVIiXX0.GzUPUWStRofrWI9Ctfv2h-XofGZwcOog9swtuqg1vSkA8kDWLcY3InVgmct7rq4ZU3lxI6CGupNgSazypHoFOA
 ```
+
 ```bash
-HTTP/1.1 200 
+HTTP/1.1 200
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
@@ -385,8 +387,9 @@ You’ll get HTTP 403 message when you call secured endpoint without a valid JWT
 ```bash
 GET http://localhost:8080/api/private
 ```
+
 ```bash
-HTTP/1.1 403 
+HTTP/1.1 403
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate

@@ -7,10 +7,13 @@ description = "Blog about programming and technology in general"
 generate_feed = true
 feed_filename = "rss.xml"
 
+# Make rendered HTML a bit smaller
+minify_html = false
+
 [markdown]
 # Enable syntax highlighting
 highlight_code  = true
-highlight_theme = "dracula"
+highlight_theme = "visual-studio-dark"
 
 # Enable emoji rendering (:smile: becomes 😄)
 render_emoji = true
