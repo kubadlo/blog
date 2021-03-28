@@ -3,12 +3,8 @@ base_url    = "https://jakublesko.com"
 title       = "Jakub Leško"
 description = "Blog about programming and technology in general"
 
-# Enable RSS feed generation
-generate_feed = true
-feed_filename = "rss.xml"
-
 # Make rendered HTML a bit smaller
-minify_html = false
+minify_html = true
 
 [markdown]
 # Enable syntax highlighting

@@ -1,44 +1,26 @@
 {% macro base(description) %}
-  <meta name="author"
-        content="Jakub Leško">
-  <meta name="description"
-        content="{{ description }}">
+  <meta name="author" content="Jakub Leško">
+  <meta name="description" content="{{ description }}">
 {% endmacro  %}
 
 {% macro facebook(title, description, url, type="website") %}
-  <meta property="og:url"
-        content="{{ config.base_url }}{{ url }}">
-  <meta property="og:type"
-        content="{{ type }}">
-  <meta property="og:title"
-        content="{{ title }}">
-  <meta property="og:description"
-        content="{{ description }}">
-  <meta property="og:image"
-        content="{{ get_url(path='/images/share_facebook.png') }}">
-  <meta property="og:image:width"
-        content="1800">
-  <meta property="og:image:height"
-        content="600">
-  <meta property="og:image:alt"
-        content="Cartoon character of me">
+  <meta property="og:url" content="{{ config.base_url }}{{ url }}">
+  <meta property="og:type" content="{{ type }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:image" content="{{ get_url(path='/images/share_facebook.png') }}">
+  <meta property="og:image:width" content="1800">
+  <meta property="og:image:height" content="600">
+  <meta property="og:image:alt" content="Cartoon character of me">
 {% endmacro  %}
 
 {% macro twitter(title, description, url) %}
-  <meta name="twitter:card"
-        content="summary">
-  <meta name="twitter:site"
-        content="@kubadlo">
-  <meta name="twitter:creator"
-        content="@kubadlo">
-  <meta name="twitter:url"
-        content="{{ config.base_url }}{{ url }}">
-  <meta name="twitter:title"
-        content="{{ title }}">
-  <meta name="twitter:description"
-        content="{{ description }}">
-  <meta name="twitter:image"
-        content="{{ get_url(path='/images/share_twitter.png') }}">
-  <meta name="twitter:image:alt"
-        content="Cartoon character of me">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@kubadlo">
+  <meta name="twitter:creator" content="@kubadlo">
+  <meta name="twitter:url" content="{{ config.base_url }}{{ url }}">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:image" content="{{ get_url(path='/images/share_twitter.png') }}">
+  <meta name="twitter:image:alt" content="Cartoon character of me">
 {% endmacro  %}

@@ -2,85 +2,11 @@
 <html lang="{{ config.default_language }}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   {% block meta %}
   {% endblock %}
-  {# Fonts preload #}
-  <link rel="preload"
-        as="font"
-        href="/fonts/inter.woff2"
-        crossorigin>
-  <link rel="preload"
-        as="font"
-        href="/fonts/fira-code.woff2"
-        crossorigin>
-  {# Base icons #}
-  <link rel="icon"
-        type="image/png"
-        href="{{ get_url(path='/images/favicon-196x196.png') }}"
-        sizes="196x196">
-  <link rel="icon"
-        type="image/png"
-        href="{{ get_url(path='/images/favicon-128.png') }}"
-        sizes="128x128">
-  <link rel="icon"
-        type="image/png"
-        href="{{ get_url(path='/images/favicon-96x96.png') }}"
-        sizes="96x96">
-  <link rel="icon"
-        type="image/png"
-        href="{{ get_url(path='/images/favicon-32x32.png') }}"
-        sizes="32x32">
-  <link rel="icon"
-        type="image/png"
-        href="{{ get_url(path='/images/favicon-16x16.png') }}"
-        sizes="16x16">
-  {# Apple icons #}
-  <link rel="apple-touch-icon-precomposed"
-        type="image/png"
-        href="{{ get_url(path='/images/apple-touch-icon-152x152.png') }}"
-        sizes="152x152">
-  <link rel="apple-touch-icon-precomposed"
-        type="image/png"
-        href="{{ get_url(path='/images/apple-touch-icon-144x144.png') }}"
-        sizes="144x144">
-  <link rel="apple-touch-icon-precomposed"
-        type="image/png"
-        href="{{ get_url(path='/images/apple-touch-icon-120x120.png') }}"
-        sizes="120x120">
-  <link rel="apple-touch-icon-precomposed"
-        type="image/png"
-        href="{{ get_url(path='/images/apple-touch-icon-114x114.png') }}"
-        sizes="114x114">
-  <link rel="apple-touch-icon-precomposed"
-        type="image/png"
-        href="{{ get_url(path='/images/apple-touch-icon-76x76.png') }}"
-        sizes="76x76">
-  <link rel="apple-touch-icon-precomposed"
-        type="image/png"
-        href="{{ get_url(path='/images/apple-touch-icon-72x72.png') }}"
-        sizes="72x72">
-  <link rel="apple-touch-icon-precomposed"
-        type="image/png"
-        href="{{ get_url(path='/images/apple-touch-icon-60x60.png') }}"
-        sizes="60x60">
-  <link rel="apple-touch-icon-precomposed"
-        type="image/png"
-        href="{{ get_url(path='/images/apple-touch-icon-57x57.png') }}"
-        sizes="57x57">
-  {# Stylesheets #}
-  <link rel="stylesheet"
-        type="text/css"
-        href="{{ get_url(path='/styles/fonts.css') }}">
-  <link rel="stylesheet"
-        type="text/css"
-        href="{{ get_url(path='/styles/blog.css') }}">
-  {# RSS feed #}
-  <link rel="alternate"
-        type="application/rss+xml"
-        title="RSS Feed"
-        href="{{ get_url(path='rss.xml') }}">
+  {% include "partials/icons.html" %}
+  {% include "partials/styles.html" %}
   <title>{% block title %}Jakub Leško{% endblock %}</title>
 </head>
 <body>
