@@ -9,10 +9,10 @@ I'm a full-stack developer interested in modern web applications and science. I 
 
 ## Tech stack
 
-- ☕ Java, SpringBoot, Liferay
-- 🤖 NodeJS, Express, Koa
-- 🌍 JavaScript, TypeScript, NextJS, React, Redux, Angular
-- ⌨️ Windows, PowerShell
+- :coffee: Java, SpringBoot, Liferay
+- :robot: NodeJS, Express, Koa
+- :earth_africa: JavaScript, TypeScript, NextJS, React, Redux, Angular
+- ️:keyboard: Windows, PowerShell
 
 ## Get in touch
 
