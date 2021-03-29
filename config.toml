@@ -3,9 +3,6 @@ base_url    = "https://jakublesko.com"
 title       = "Jakub Leško"
 description = "Blog about programming and technology in general"
 
-# Make rendered HTML a bit smaller
-minify_html = true
-
 [markdown]
 # Enable syntax highlighting
 highlight_code  = true
