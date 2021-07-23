@@ -55,9 +55,7 @@ encoded JSON objects.
   "aud": "secure-app",
   "sub": "user",
   "exp": 1548242589,
-  "rol": [
-    "ROLE_USER"
-  ]
+  "rol": ["ROLE_USER"]
 }
 ```
 
@@ -75,23 +73,22 @@ JWT support for Java is provided by the library [JJWT](https://github.com/jwtk/j
 dependencies to the pom.xml file:
 
 ```xml
-
 <dependency>
   <groupId>io.jsonwebtoken</groupId>
   <artifactId>jjwt-api</artifactId>
   <version>0.10.5</version>
 </dependency>
 <dependency>
-<groupId>io.jsonwebtoken</groupId>
-<artifactId>jjwt-impl</artifactId>
-<version>0.10.5</version>
-<scope>runtime</scope>
+  <groupId>io.jsonwebtoken</groupId>
+  <artifactId>jjwt-impl</artifactId>
+  <version>0.10.5</version>
+  <scope>runtime</scope>
 </dependency>
 <dependency>
-<groupId>io.jsonwebtoken</groupId>
-<artifactId>jjwt-jackson</artifactId>
-<version>0.10.5</version>
-<scope>runtime</scope>
+  <groupId>io.jsonwebtoken</groupId>
+  <artifactId>jjwt-jackson</artifactId>
+  <version>0.10.5</version>
+  <scope>runtime</scope>
 </dependency>
 ```
 
