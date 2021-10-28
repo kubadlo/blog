@@ -9,9 +9,9 @@ I'm a full-stack developer interested in modern web applications and science. I 
 
 ## Tech stack
 
-- Java, Spring Boot, Hibernate
-- NodeJS, Express, Koa, Prisma
-- JavaScript, TypeScript, NextJS, React, Redux
+- JavaScript, TypeScript, Java
+- React, Redux, Angular, NextJS, Tailwind CSS
+- NodeJS, Prisma, SpringBoot, Hibernate
 - Linux, macOS
 
 ## Get in touch
