@@ -25,7 +25,7 @@ JSON Web Token contains three main parts:
 
 1. Header – typically includes the type of the token and hashing algorithm.
 2. Payload – typically includes data about a user and for whom is token issued.
-3. Signature – it’s used to verify if a message wasn’t changed along the way.
+3. Signature – it’s used to verify if a message wasn't changed along the way.
 
 ## Example token
 
@@ -73,23 +73,25 @@ JWT support for Java is provided by the library [JJWT](https://github.com/jwtk/j
 dependencies to the pom.xml file:
 
 ```xml
-<dependency>
-  <groupId>io.jsonwebtoken</groupId>
-  <artifactId>jjwt-api</artifactId>
-  <version>0.10.5</version>
-</dependency>
-<dependency>
-  <groupId>io.jsonwebtoken</groupId>
-  <artifactId>jjwt-impl</artifactId>
-  <version>0.10.5</version>
-  <scope>runtime</scope>
-</dependency>
-<dependency>
-  <groupId>io.jsonwebtoken</groupId>
-  <artifactId>jjwt-jackson</artifactId>
-  <version>0.10.5</version>
-  <scope>runtime</scope>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>0.10.5</version>
+  </dependency>
+  <dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-impl</artifactId>
+    <version>0.10.5</version>
+    <scope>runtime</scope>
+  </dependency>
+  <dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-jackson</artifactId>
+    <version>0.10.5</version>
+    <scope>runtime</scope>
+  </dependency>
+</dependencies>
 ```
 
 ## Controllers
@@ -102,10 +104,10 @@ error code in case the user is not authorized.
 @RequestMapping("/api/public")
 public class PublicController {
 
-    @GetMapping
-    public String getMessage() {
-        return "Hello from public API controller";
-    }
+  @GetMapping
+  public String getMessage() {
+    return "Hello from public API controller";
+  }
 }
 ```
 
@@ -114,10 +116,10 @@ public class PublicController {
 @RequestMapping("/api/private")
 public class PrivateController {
 
-    @GetMapping
-    public String getMessage() {
-        return "Hello from private API controller";
-    }
+  @GetMapping
+  public String getMessage() {
+    return "Hello from private API controller";
+  }
 }
 ```
 
@@ -132,22 +134,22 @@ HS512 algorithm needs a key with size at least 512 bytes._
 ```java
 public final class SecurityConstants {
 
-    public static final String AUTH_LOGIN_URL = "/api/authenticate";
+  public static final String AUTH_LOGIN_URL = "/api/authenticate";
 
-    // Signing key for HS512 algorithm
-    // You can use the page http://www.allkeysgenerator.com/ to generate all kinds of keys
-    public static final String JWT_SECRET = "n2r5u8x/A%D*G-KaPdSgVkYp3s6v9y$B&E(H+MbQeThWmZq4t7w!z%C*F-J@NcRf";
+  // Signing key for HS512 algorithm
+  // You can use the page https://www.allkeysgenerator.com/ to generate all kinds of keys
+  public static final String JWT_SECRET = "n2r5u8x/A%D*G-KaPdSgVkYp3s6v9y$B&E(H+MbQeThWmZq4t7w!z%C*F-J@NcRf";
 
-    // JWT token defaults
-    public static final String TOKEN_HEADER = "Authorization";
-    public static final String TOKEN_PREFIX = "Bearer ";
-    public static final String TOKEN_TYPE = "JWT";
-    public static final String TOKEN_ISSUER = "secure-api";
-    public static final String TOKEN_AUDIENCE = "secure-app";
+  // JWT token defaults
+  public static final String TOKEN_HEADER = "Authorization";
+  public static final String TOKEN_PREFIX = "Bearer ";
+  public static final String TOKEN_TYPE = "JWT";
+  public static final String TOKEN_ISSUER = "secure-api";
+  public static final String TOKEN_AUDIENCE = "secure-app";
 
-    private SecurityConstants() {
-        throw new IllegalStateException("Cannot create instance of static util class");
-    }
+  private SecurityConstants() {
+    throw new IllegalStateException("Cannot create instance of static util class");
+  }
 }
 ```
 
@@ -160,47 +162,47 @@ header.
 ```java
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-    private final AuthenticationManager authenticationManager;
+  private final AuthenticationManager authenticationManager;
 
-    public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
-        this.authenticationManager = authenticationManager;
+  public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
+    this.authenticationManager = authenticationManager;
 
-        setFilterProcessesUrl(SecurityConstants.AUTH_LOGIN_URL);
-    }
+    setFilterProcessesUrl(SecurityConstants.AUTH_LOGIN_URL);
+  }
 
-    @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
-        var username = request.getParameter("username");
-        var password = request.getParameter("password");
-        var authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
+  @Override
+  public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
+    var username = request.getParameter("username");
+    var password = request.getParameter("password");
+    var authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
 
-        return authenticationManager.authenticate(authenticationToken);
-    }
+    return authenticationManager.authenticate(authenticationToken);
+  }
 
-    @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
-                                            FilterChain filterChain, Authentication authentication) {
-        var user = ((User) authentication.getPrincipal());
+  @Override
+  protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
+                                          FilterChain filterChain, Authentication authentication) {
+    var user = ((User) authentication.getPrincipal());
 
-        var roles = user.getAuthorities()
-            .stream()
-            .map(GrantedAuthority::getAuthority)
-            .collect(Collectors.toList());
+    var roles = user.getAuthorities()
+      .stream()
+      .map(GrantedAuthority::getAuthority)
+      .collect(Collectors.toList());
 
-        var signingKey = SecurityConstants.JWT_SECRET.getBytes();
+    var signingKey = SecurityConstants.JWT_SECRET.getBytes();
 
-        var token = Jwts.builder()
-            .signWith(Keys.hmacShaKeyFor(signingKey), SignatureAlgorithm.HS512)
-            .setHeaderParam("typ", SecurityConstants.TOKEN_TYPE)
-            .setIssuer(SecurityConstants.TOKEN_ISSUER)
-            .setAudience(SecurityConstants.TOKEN_AUDIENCE)
-            .setSubject(user.getUsername())
-            .setExpiration(new Date(System.currentTimeMillis() + 864000000))
-            .claim("rol", roles)
-            .compact();
+    var token = Jwts.builder()
+      .signWith(Keys.hmacShaKeyFor(signingKey), SignatureAlgorithm.HS512)
+      .setHeaderParam("typ", SecurityConstants.TOKEN_TYPE)
+      .setIssuer(SecurityConstants.TOKEN_ISSUER)
+      .setAudience(SecurityConstants.TOKEN_AUDIENCE)
+      .setSubject(user.getUsername())
+      .setExpiration(new Date(System.currentTimeMillis() + 864000000))
+      .claim("rol", roles)
+      .compact();
 
-        response.addHeader(SecurityConstants.TOKEN_HEADER, SecurityConstants.TOKEN_PREFIX + token);
-    }
+    response.addHeader(SecurityConstants.TOKEN_HEADER, SecurityConstants.TOKEN_PREFIX + token);
+  }
 }
 ```
 
@@ -212,62 +214,62 @@ If the token is valid then the filter will add authentication data into Spring�
 ```java
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
-    private static final Logger log = LoggerFactory.getLogger(JwtAuthorizationFilter.class);
+  private static final Logger log = LoggerFactory.getLogger(JwtAuthorizationFilter.class);
 
-    public JwtAuthorizationFilter(AuthenticationManager authenticationManager) {
-        super(authenticationManager);
+  public JwtAuthorizationFilter(AuthenticationManager authenticationManager) {
+    super(authenticationManager);
+  }
+
+  @Override
+  protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
+                                  FilterChain filterChain) throws IOException, ServletException {
+    var authentication = getAuthentication(request);
+    if (authentication == null) {
+      filterChain.doFilter(request, response);
+      return;
     }
 
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
-                                    FilterChain filterChain) throws IOException, ServletException {
-        var authentication = getAuthentication(request);
-        if (authentication == null) {
-            filterChain.doFilter(request, response);
-            return;
+    SecurityContextHolder.getContext().setAuthentication(authentication);
+    filterChain.doFilter(request, response);
+  }
+
+  private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
+    var token = request.getHeader(SecurityConstants.TOKEN_HEADER);
+    if (StringUtils.isNotEmpty(token) && token.startsWith(SecurityConstants.TOKEN_PREFIX)) {
+      try {
+        var signingKey = SecurityConstants.JWT_SECRET.getBytes();
+
+        var parsedToken = Jwts.parser()
+          .setSigningKey(signingKey)
+          .parseClaimsJws(token.replace("Bearer ", ""));
+
+        var username = parsedToken
+          .getBody()
+          .getSubject();
+
+        var authorities = ((List<?>) parsedToken.getBody()
+          .get("rol")).stream()
+          .map(authority -> new SimpleGrantedAuthority((String) authority))
+          .collect(Collectors.toList());
+
+        if (StringUtils.isNotEmpty(username)) {
+          return new UsernamePasswordAuthenticationToken(username, null, authorities);
         }
-
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        filterChain.doFilter(request, response);
+      } catch (ExpiredJwtException exception) {
+        log.warn("Request to parse expired JWT : {} failed : {}", token, exception.getMessage());
+      } catch (UnsupportedJwtException exception) {
+        log.warn("Request to parse unsupported JWT : {} failed : {}", token, exception.getMessage());
+      } catch (MalformedJwtException exception) {
+        log.warn("Request to parse invalid JWT : {} failed : {}", token, exception.getMessage());
+      } catch (SignatureException exception) {
+        log.warn("Request to parse JWT with invalid signature : {} failed : {}", token, exception.getMessage());
+      } catch (IllegalArgumentException exception) {
+        log.warn("Request to parse empty or null JWT : {} failed : {}", token, exception.getMessage());
+      }
     }
 
-    private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
-        var token = request.getHeader(SecurityConstants.TOKEN_HEADER);
-        if (StringUtils.isNotEmpty(token) && token.startsWith(SecurityConstants.TOKEN_PREFIX)) {
-            try {
-                var signingKey = SecurityConstants.JWT_SECRET.getBytes();
-
-                var parsedToken = Jwts.parser()
-                    .setSigningKey(signingKey)
-                    .parseClaimsJws(token.replace("Bearer ", ""));
-
-                var username = parsedToken
-                    .getBody()
-                    .getSubject();
-
-                var authorities = ((List<?>) parsedToken.getBody()
-                    .get("rol")).stream()
-                    .map(authority -> new SimpleGrantedAuthority((String) authority))
-                    .collect(Collectors.toList());
-
-                if (StringUtils.isNotEmpty(username)) {
-                    return new UsernamePasswordAuthenticationToken(username, null, authorities);
-                }
-            } catch (ExpiredJwtException exception) {
-                log.warn("Request to parse expired JWT : {} failed : {}", token, exception.getMessage());
-            } catch (UnsupportedJwtException exception) {
-                log.warn("Request to parse unsupported JWT : {} failed : {}", token, exception.getMessage());
-            } catch (MalformedJwtException exception) {
-                log.warn("Request to parse invalid JWT : {} failed : {}", token, exception.getMessage());
-            } catch (SignatureException exception) {
-                log.warn("Request to parse JWT with invalid signature : {} failed : {}", token, exception.getMessage());
-            } catch (IllegalArgumentException exception) {
-                log.warn("Request to parse empty or null JWT : {} failed : {}", token, exception.getMessage());
-            }
-        }
-
-        return null;
-    }
+    return null;
+  }
 }
 ```
 
@@ -285,44 +287,45 @@ details:
 - Disable session management – we don’t need sessions so this will prevent the creation of session cookies
 
 ```java
+
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and()
-            .csrf().disable()
-            .authorizeRequests()
-            .antMatchers("/api/public").permitAll()
-            .anyRequest().authenticated()
-            .and()
-            .addFilter(new JwtAuthenticationFilter(authenticationManager()))
-            .addFilter(new JwtAuthorizationFilter(authenticationManager()))
-            .sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-    }
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.cors().and()
+      .csrf().disable()
+      .authorizeRequests()
+      .antMatchers("/api/public").permitAll()
+      .anyRequest().authenticated()
+      .and()
+      .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+      .addFilter(new JwtAuthorizationFilter(authenticationManager()))
+      .sessionManagement()
+      .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+  }
 
-    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-            .withUser("user")
-            .password(passwordEncoder().encode("password"))
-            .authorities("ROLE_USER");
-    }
+  @Override
+  public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth.inMemoryAuthentication()
+      .withUser("user")
+      .password(passwordEncoder().encode("password"))
+      .authorities("ROLE_USER");
+  }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+  @Bean
+  public CorsConfigurationSource corsConfigurationSource() {
+    final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
 
-        return source;
-    }
+    return source;
+  }
 }
 ```
 
@@ -433,7 +436,7 @@ Response code: 403; Time: 28ms; Content length: 125 bytes
 
 The goal of this article is not to show the one correct way how to use JWTs in Spring Security. It’s an example of how
 you can do it in your real-life application. Also, I did not want to go too deep into the topic so few things like token
-refreshing, invalidation, etc. are missing but I’ll cover these topics probably in the future.
+refreshing, invalidation, etc. are missing, but I’ll cover these topics probably in the future.
 
 **tl;dr** You can find the full source code of this example API in
 my [GitHub repository](https://github.com/kubadlo/jwt-security).
