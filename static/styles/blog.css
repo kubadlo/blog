@@ -1,6 +1,6 @@
 /* This CSS is inspired by https://github.com/xz/new.css/blob/master/new.css */
 :root {
-  --nc-font-sans: 'Inter', sans-serif;
+  --nc-font-sans: 'Fira Sans', sans-serif;
   --nc-font-mono: 'Fira Code', monospace;
 
   /* Light theme */
@@ -174,7 +174,7 @@ blockquote *:last-child {
 header {
   background: var(--nc-bg-2);
   border-bottom: 1px solid var(--nc-bg-3);
-  margin: -2rem calc(0px - (50vw - 50%)) 2rem;
+  margin: -2rem calc(50% - 50vw) 2rem;
   padding: 2rem calc(50vw - 50%);
 }
 
@@ -235,6 +235,10 @@ input[type="button"]:enabled:hover {
   background: var(--nc-lk-2);
 }
 
+a img {
+  margin-bottom: 0;
+}
+
 code,
 pre,
 kbd,
@@ -247,6 +251,7 @@ samp,
 kbd,
 pre {
   background: var(--nc-bg-2);
+  border: 1px solid var(--nc-bg-3);
   border-radius: 4px;
   padding: 3px 6px;
   font-size: 0.9em;
