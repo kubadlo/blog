@@ -9,10 +9,13 @@ I'm a full-stack developer interested in modern web applications and science. I 
 
 ## Tech stack
 
-- JavaScript, TypeScript, Java
+### Frontend
+- JavaScript, TypeScript, CSS
 - React, Redux, Angular, NextJS, Tailwind CSS
+
+### Backend
+- JavaScript, TypeScript, Java
 - NodeJS, Prisma, SpringBoot, Hibernate
-- Linux, macOS
 
 ## Get in touch
 
