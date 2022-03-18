@@ -12,3 +12,7 @@ ErrorDocument 404 https://jakublesko.com/404.html
 <filesMatch ".(jpg|jpeg|ico|png|svg)$">
   Header set Cache-Control "max-age=31557600, public"
 </filesMatch>
+
+<filesMatch ".(woff|woff2)$">
+  Header set Cache-Control "max-age=31557600, public"
+</filesMatch>
