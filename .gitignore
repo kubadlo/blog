@@ -1,15 +1,19 @@
 # NodeJS
 node_modules/
-npm-debug.log
+*.log
 
-# Zola
-public/
-
-# Sublime Text
-*.sublime-workspace
+# NextJS
+.next/
 
 # VSCode
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # WebStorm
 .idea/
+
+# OS junk
+.DS_Store
