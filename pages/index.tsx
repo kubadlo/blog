@@ -1,3 +1,4 @@
+import { Heading } from '@chakra-ui/react';
 import { Fragment } from 'react';
 import { Meta } from '~/components';
 
@@ -8,7 +9,7 @@ export default function Home() {
         title="Jakub Leško"
         description="Blog about programming and technology in general"
       />
-      <p>Home</p>
+      <Heading as="h1">Home</Heading>
     </Fragment>
   );
 }

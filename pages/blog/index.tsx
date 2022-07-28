@@ -1,3 +1,4 @@
+import { Heading } from '@chakra-ui/react';
 import { Fragment } from 'react';
 import { Meta } from '~/components';
 
@@ -8,7 +9,7 @@ export default function BlogList() {
         title="Jakub Leško | Blog"
         description="Blog about programming and technology in general"
       />
-      <p>Blog list</p>
+      <Heading as="h1">Blog</Heading>
     </Fragment>
   );
 }
