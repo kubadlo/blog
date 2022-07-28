@@ -1,14 +1,14 @@
 import { Fragment } from 'react';
 import { Meta } from '~/components';
 
-export default function Home() {
+export default function BlogPost() {
   return (
     <Fragment>
       <Meta
-        title="Jakub Leško"
+        title="Jakub Leško | Blog"
         description="Blog about programming and technology in general"
       />
-      <p>Home</p>
+      <p>Blog post</p>
     </Fragment>
   );
 }
