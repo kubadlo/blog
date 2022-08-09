@@ -1,6 +1,6 @@
 import { Heading } from '@chakra-ui/react';
 import { Fragment } from 'react';
-import { Meta } from '~/components';
+import Meta from '~/components/meta';
 
 export default function BlogPost() {
   return (

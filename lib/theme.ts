@@ -15,4 +15,4 @@ const fonts: Partial<ChakraTheme> = {
   }
 };
 
-export const theme = extendTheme(global, fonts);
+export default extendTheme(global, fonts);

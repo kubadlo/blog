@@ -7,7 +7,7 @@ type Props = {
   type?: 'website' | 'article';
 };
 
-export function Meta({ title, description, type = 'website' }: Props) {
+export default function Meta({ title, description, type = 'website' }: Props) {
   const { asPath } = useRouter();
   const url = `https://jakublesko${asPath}`;
 
