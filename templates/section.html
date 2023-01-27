@@ -18,7 +18,7 @@
     <main>
       {% for page in paginator.pages %}
         <article>
-          <h2>{{ page.title }}</h2>
+          <h1><a href="{{ page.path }}">{{ page.title }}</a></h1>
           <p>
             <time datetime="{{ page.date }}">{{ page.date | date(format="%B %e, %Y") }}</time>
             <span>&middot;</span>

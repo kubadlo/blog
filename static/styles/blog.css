@@ -402,3 +402,12 @@ input {
 img {
   max-width: 100%;
 }
+
+article h1 a {
+  color: var(--nc-tx-1);
+  text-decoration: none;
+}
+
+article h1 a:hover {
+  color: var(--nc-tx-2);
+}
