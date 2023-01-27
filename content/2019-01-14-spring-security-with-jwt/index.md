@@ -1,5 +1,5 @@
 +++
-title       = "Spring Security with JWT"
+title = "Spring Security with JWT"
 description = "Simple tutorial to show you how to use Spring Security with JWT"
 +++
 
@@ -55,7 +55,9 @@ encoded JSON objects.
   "aud": "secure-app",
   "sub": "user",
   "exp": 1548242589,
-  "rol": ["ROLE_USER"]
+  "rol": [
+    "ROLE_USER"
+  ]
 }
 ```
 
@@ -73,6 +75,7 @@ JWT support for Java is provided by the library [JJWT](https://github.com/jwtk/j
 dependencies to the pom.xml file:
 
 ```xml
+
 <dependencies>
   <dependency>
     <groupId>io.jsonwebtoken</groupId>
