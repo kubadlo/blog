@@ -1,11 +1,13 @@
 # Page defaults
-base_url    = "https://jakublesko.com"
-title       = "Jakub Leško"
+base_url = "https://jakublesko.com"
+title = "Jakub Leško"
 description = "Blog about programming and technology in general"
+
+minify_html = true
 
 [markdown]
 # Enable syntax highlighting
-highlight_code  = true
+highlight_code = true
 highlight_theme = "visual-studio-dark"
 
 # Enable emoji rendering (:smile: becomes 😄)
@@ -15,5 +17,5 @@ render_emoji = true
 external_links_target_blank = true
 
 # Privacy enhancements for external links
-external_links_no_follow    = true
-external_links_no_referrer  = true
+external_links_no_follow = true
+external_links_no_referrer = true
