@@ -1,10 +1,6 @@
 RewriteEngine on
 ErrorDocument 404 https://jakublesko.com/404.html
 
-<filesMatch ".(htm|html)$">
-  Header set Cache-Control "max-age=3600, public"
-</filesMatch>
-
 <filesMatch ".(css|js)$">
   Header set Cache-Control "max-age=2629800, public"
 </filesMatch>
